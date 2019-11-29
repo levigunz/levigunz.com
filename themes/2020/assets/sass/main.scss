@@ -4,27 +4,53 @@
 }
 
 html {
-  background: black;
+  background: white;
 }
 
 #flex-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
 
-  @media screen and (max-width: 800px) {
-    height: unset;
-    flex-direction: column;
+label {
+  width: 25vw;
+  display: block;
+  float: left;
+  height: 100%;
+  transition: width 300ms;
+}
+
+label#back {
+  width: unset;
+  height: unset;
+  display: none;
+  transition: none;
+
+  :checked:not(#back-toggle) ~ & {
+    display: inline;
   }
 }
 
-.responsive-column {
-  flex-basis: 25%;
-  @media screen and (max-width: 800px) {
-    flex-basis: unset;
-    min-height: 90vh;
-  }
+label:focus {
+  border: 5px solid blue($color: #000000);
+}
+
+// :not(input[type='radio']:checked) + label {
+// }
+
+input {
+  display: none;
+}
+
+input[type='radio']:checked + label {
+  z-index: 8;
+  width: 100%;
+}
+
+#freelance {
+  background: lightblue;
+}
+
+input[type='radio']:checked #gunsallus {
+  font-size: 24px;
 }
