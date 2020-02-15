@@ -1,58 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
 * {
   margin: 0px;
   padding: 0px;
 }
 
 html {
-  background: white;
+  background: url('/background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  backdrop-filter: blur(25px);  
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+
+  font-size: 24px;
+  color: white;
 }
 
-#flex-wrapper {
+body {
+  width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
 
-label {
-  width: 25vw;
-  display: block;
-  float: left;
-  height: 100%;
-  transition: width 300ms;
-  cursor: pointer;
+#content {
+  width: inherit;
+  height: inherit;
 }
 
-label#back {
-  width: unset;
-  height: unset;
-  display: none;
-  transition: none;
+img {
+  position: fixed;
+  left: 50%;
+  background: rgb(244, 216, 198);
+  top: 10vh;
+  max-height: 80vh;
+  transform: translate3d(-90%, 0, 0);
 
-  :checked:not(#back-toggle) ~ & {
-    display: inline;
+  @media only screen and (max-width: 800px) {
+    left: -10%;
+    transform: unset;
   }
 }
 
-label:focus {
-  border: 5px solid blue($color: #000000);
+#name {
+  margin-left: 12px;
+  font-size: 48px;
+  text-transform: uppercase;
 }
 
-// :not(input[type='radio']:checked) + label {
-// }
-
-input {
-  display: none;
+#bio {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 50vw;
 }
 
-input[type='radio']:checked + label {
-  z-index: 8;
-  width: 100%;
-  cursor: unset;
+::selection {
+  background: black;
 }
 
-#freelance {
-  background: lightblue;
+a {
+  text-decoration: none;
+  color: unset;
 }
 
-input[type='radio']:checked #gunsallus {
-  font-size: 24px;
+.ellipsis {
+  animation-name: fade;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes fade {
+  from   {opacity: 1;}
+  to  {opacity: 0;}
+ 
 }
